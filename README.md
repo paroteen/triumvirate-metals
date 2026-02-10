@@ -2,9 +2,6 @@
 
 This contains everything you need to run your app locally.
 
-> [!NOTE]
-> **AI Generated Content**: Portions of this codebase were generated with the assistance of Artificial Intelligence tools.
-
 ## Run Locally
 
 **Prerequisites:**  Node.js

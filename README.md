@@ -6,6 +6,9 @@
 
 This contains everything you need to run your app locally.
 
+> [!NOTE]
+> **AI Generated Content**: Portions of this codebase were generated with the assistance of Artificial Intelligence tools.
+
 View your app in AI Studio: https://ai.studio/apps/drive/1vdxt_DD1ipv5L_xgy4dist-bNog-owO1
 
 ## Run Locally

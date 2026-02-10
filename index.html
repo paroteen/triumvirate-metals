@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-obsidian text-offwhite antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triumvirate Metals | Strategic Materials & Infrastructure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#050505',
+                        charcoal: '#121212',
+                        gunmetal: '#2a2d34',
+                        steelblue: '#4f6d7a',
+                        copper: '#b87333',
+                        offwhite: '#eaeaeb',
+                        muted: '#888888',
+                        deepblue: '#060d14',
+                        mineralgreen: '#0b1410',
+                        amber: '#8a5019',
+                        sand: '#dcd3c6',
+                        rust: '#4a251b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        grotesk: ['Space Grotesk', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'topo': 'linear-gradient(to right, #ffffff03 1px, transparent 1px), linear-gradient(to bottom, #ffffff03 1px, transparent 1px)',
+                        'metallic': 'linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%)'
+                    },
+                    backgroundSize: {
+                        'topo': '40px 40px',
+                        'metallic': '200% 200%'
+                    },
+                    transitionDuration: {
+                        '800': '800ms',
+                        '1200': '1200ms',
+                        '1500': '1500ms',
+                        '2000': '2000ms',
+                        '3000': '3000ms',
+                    },
+                    transitionTimingFunction: {
+                        'expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+                        'editorial': 'cubic-bezier(0.2, 0.6, 0.2, 1)',
+                        'cinematic': 'cubic-bezier(0.25, 1, 0.5, 1)',
+                        'webflow': 'cubic-bezier(0.16, 1, 0.3, 1)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2d34;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b87333;
+        }
+        
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .clip-text-mask {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* Continuous Animations */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        .scanline-overlay::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 10vh;
+            background: linear-gradient(to bottom, transparent, rgba(79, 109, 122, 0.08), transparent);
+            animation: scanline 10s linear infinite;
+            pointer-events: none;
+            z-index: 40;
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        .animate-float-slow {
+            animation: floatSlow 8s ease-in-out infinite;
+        }
+
+        @keyframes metallicShine {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+        .animate-metallic {
+            animation: metallicShine 6s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .satellite-ring {
+            animation: spinSlow 60s linear infinite;
+        }
+        .satellite-ring-reverse {
+            animation: spinSlow 90s linear infinite reverse;
+        }
+        
+        /* Smooth native scroll */
+        html { scroll-behavior: smooth; }
+        body { overscroll-behavior-y: none; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-obsidian min-h-screen selection:bg-copper/30 selection:text-offwhite overflow-x-hidden scanline-overlay">
+    <div class="fixed inset-0 z-50 bg-noise pointer-events-none"></div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
